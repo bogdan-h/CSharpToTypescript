@@ -8,6 +8,7 @@
 
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System;
 
 namespace RoslynTypeScript.Translation
 {
@@ -25,8 +26,16 @@ namespace RoslynTypeScript.Translation
                 return null;
             }
 
-            var node = TF.Get<T>( syntaxNode, parent );
-            return node;
+            //try
+            //{
+                var node = TF.Get<T>(syntaxNode, parent);
+                return node;
+            //}
+            //catch (Exception exc)
+            //{
+            //    string mess = exc.Message;
+            //    throw exc;
+            //}
         }
 
         public static SyntaxTokenListTranslation Get(this SyntaxTokenList list, SyntaxTranslation parent)
