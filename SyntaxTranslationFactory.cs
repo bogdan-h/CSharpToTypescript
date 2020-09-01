@@ -10,6 +10,7 @@ using Microsoft.CodeAnalysis;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Text;
 
 namespace RoslynTypeScript.Translation
 {
@@ -23,7 +24,22 @@ namespace RoslynTypeScript.Translation
 
         public static T Get<T>(SyntaxNode syntaxNode, SyntaxTranslation parent) where T : SyntaxTranslation
         {
-            return (T)Get( syntaxNode, parent );
+            try
+            {
+                return (T)Get(syntaxNode, parent);
+            }
+            catch (Exception exc)
+            {
+                // Capture only the exception that caused the error. Ignore the un-winding of the stack.
+                // Format the exception so it can be visible.
+                if (exc != null && exc.Message != "Exception has been thrown by the target of an invocation.")
+                {
+                    string delimiter = new String('=', 80);
+                    string exceptionLine = string.Format("{1}{3}{1}{1}{0}{1}{2}{1}{1}{3}{1}", exc.Message, Environment.NewLine, syntaxNode.GetText().ToString(), delimiter);
+                    throw new Exception(exceptionLine);
+                }
+                throw;
+            }
         }
 
         public static T VirtualGet<T>(string code) where T : SyntaxTranslation, new()

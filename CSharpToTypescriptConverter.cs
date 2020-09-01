@@ -30,8 +30,11 @@ namespace CSharpToTypescript
             }
         }
 
+        public string ConvertException{ get; private set; }
+
         public string ConvertToTypescript(string text, ISettingStore settingStore)
         {
+            ConvertException = string.Empty;
             try
             {
                 var tree = (CSharpSyntaxTree)CSharpSyntaxTree.ParseText( text );
@@ -94,8 +97,7 @@ namespace CSharpToTypescript
             }
             catch (Exception ex)
             {
-                // TODO
-                // swallow exception .!!!!!!!!!!!!!!!!!!!!!!!
+                ConvertException = ex.ToString();
             }
 
             return null;
