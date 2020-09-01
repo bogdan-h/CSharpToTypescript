@@ -28,21 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.codeArea = new System.Windows.Forms.TextBox();
             this.convertButton = new System.Windows.Forms.Button();
+            this.codeArea = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
-            // 
-            // codeArea
-            // 
-            this.codeArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.codeArea.Location = new System.Drawing.Point(12, 12);
-            this.codeArea.Multiline = true;
-            this.codeArea.Name = "codeArea";
-            this.codeArea.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.codeArea.Size = new System.Drawing.Size(776, 405);
-            this.codeArea.TabIndex = 0;
             // 
             // convertButton
             // 
@@ -55,24 +43,33 @@
             this.convertButton.UseVisualStyleBackColor = true;
             this.convertButton.Click += new System.EventHandler(this.convertButton_Click);
             // 
+            // codeArea
+            // 
+            this.codeArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.codeArea.Location = new System.Drawing.Point(12, 12);
+            this.codeArea.Name = "codeArea";
+            this.codeArea.Size = new System.Drawing.Size(776, 405);
+            this.codeArea.TabIndex = 2;
+            this.codeArea.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.convertButton);
             this.Controls.Add(this.codeArea);
+            this.Controls.Add(this.convertButton);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox codeArea;
         private System.Windows.Forms.Button convertButton;
+        private System.Windows.Forms.RichTextBox codeArea;
     }
 }
 

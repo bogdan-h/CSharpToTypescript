@@ -97,9 +97,6 @@ namespace CSharpToTypescript
             }
             catch (Exception ex)
             {
-                // TODO
-                // swallow exception .!!!!!!!!!!!!!!!!!!!!!!!
-
                 ConvertException = ex.ToString();
             }
 

@@ -30,6 +30,8 @@ namespace RoslynTypeScript.Translation
             }
             catch (Exception exc)
             {
+                // Capture only the exception that caused the error. Ignore the un-winding of the stack.
+                // Format the exception so it can be visible.
                 if (exc != null && exc.Message != "Exception has been thrown by the target of an invocation.")
                 {
                     string delimiter = new String('=', 80);
