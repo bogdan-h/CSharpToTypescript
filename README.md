@@ -5,7 +5,7 @@
 **Original Repository:  https://github.com/joao-neves95/CSharpToTypescript forked from https://github.com/nhabuiduc/TypescriptSyntaxPaste**
 
 Modified the library and built a small application that will : 
- 1. Parse a folders and all of the subfoldes and generate TypeScript files from C# files.<br/>
+ 1. Parse a folder and all of the subfoldes and generate TypeScript files from C# files.<br/>
    If the transpiler will encounter any error - the file will still be generated and the file name will contain the '-error' in the name.
  2. Open a windows form where the C# code can be pasted and after clicking on 'Convert' button either the code will be transpiled or an error will be shown.</br>
 --- 
