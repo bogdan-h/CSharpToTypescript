@@ -2,7 +2,7 @@
 
 ----
 
-**Original Repository:  joao-neves95/CSharpToTypescript forked from https://github.com/nhabuiduc/TypescriptSyntaxPaste**
+**Original Repository:  https://github.com/joao-neves95/CSharpToTypescript forked from https://github.com/nhabuiduc/TypescriptSyntaxPaste**
 
 Modified the library and built a small application that will : 
  1. Parse a folders and all of the subfoldes and generate TypeScript files from C# files.<br/>
