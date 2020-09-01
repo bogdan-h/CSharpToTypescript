@@ -2,52 +2,17 @@
 
 ----
 
-**Original Repository: https://github.com/nhabuiduc/TypescriptSyntaxPaste**
+**Original Repository:  joao-neves95/CSharpToTypescript forked from https://github.com/nhabuiduc/TypescriptSyntaxPaste**
 
-Modified and adapted to migrate to .NET Core 3 and compile with Visual Studio 2019 (originally only compilable with Visual Studio 2015).<br/>
+Modified the library and built a small application that will : 
+ 1. Parse a folders and all of the subfoldes and generate TypeScript files from C# files.<br/>
+   If the transpiler will encounter any error - the file will still be generated and the file name will contain the '-error' in the name.
+ 2. Open a windows form where the C# code can be pasted and after clicking on 'Convert' button either the code will be transpiled or an error will be shown.</br>
+   In the same manner the converted code or an error will replace the pasted code.
+--- 
 
-It does not work as a Visual Studio Extension anymore.<br/>
-Its intent now, is to be used as a library.
-
-### Download (NuGet)
-```dotnet add package LibCSharpToTypescript```
+The application is a quick-and-dirty implementation.
 
 ### How to use CSharpToTypescript:
 
-```
-
-string typescriptInput = @"class Foo{}";
-CSharpToTypescriptConverter cSharpToTypescriptConverter = new CSharpToTypescriptConverter();
-string typescriptCode = cSharpToTypescriptConverter.ConvertToTypescript( typescriptInput, new MySettingStore() );
-
-```
-
-----
-
-- Visual Studio Extension which converts C# SYNTAX to Typescript SYNTAX.
-
-**BRIEF CODE INFORMATION**
-
-Almost all converting classes are in folder Translation, which for each file containing the convert method to convert one kind of
-syntax (C#) to Typescript. For example ````ClassDeclarationSyntax```` in Roslyn will be ````ClassDeclarationTranslation```` in this project.
-
-Let say you want convert :
-in C#: ````class A {}````
-typescript: ````class myA{}````
-
-you just need to navigate to class ClassDeclarationTranslation in project, then change this line:
-````
- return $@"{GetAttributeList()}export class {Syntax.Identifier}{TypeParameterList?.Translate()} {baseTranslation}
-           {{
-           {Members.Translate()}
-           }}";
- ````
-to:
-````
- return $@"{GetAttributeList()}export class my{Syntax.Identifier}{TypeParameterList?.Translate()} {baseTranslation}
-           {{
-           {Members.Translate()}
-           }}";
-````
-
-For more information: http://bdnprojects.net/CSharpSyntaxParser/
+![Screenshot](ConvertCodeConsole.png)
